@@ -890,7 +890,7 @@ plt.ylabel('F Loss')
 # - 打印出U,D,VT的shape形状，尤其注意观察D的shape
 # - 在U，VT，D变量成功实现的情况下，运行测试程序看效果
 
-# In[ ]:
+# In[23]:
 
 
 # 5.5 DONE
@@ -904,7 +904,7 @@ print(D.shape)
 print(VT.shape)
 
 
-# In[ ]:
+# In[24]:
 
 
 #请在U，D，V变量完成的情况下调用此测试程序，不要修改此处
