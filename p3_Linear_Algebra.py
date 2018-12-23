@@ -133,9 +133,9 @@ from PIL import Image
 
 # 1.1.1 DONE：
 # Define vector v 
-v = np.array([1,1])
+v = np.array([4,1])
 # Define vector w
-w = np.array([-2,2])
+w = np.array([-1, 2])
 
 target_v = 2 * v
 
@@ -162,10 +162,10 @@ ax.arrow(0, 0, *target, color='b', linewidth=2.5, head_width=0.30, head_length=0
 
 
 # Sets limit for plot for x-axis
-plt.xlim(-2, 8)
+plt.xlim(-2, 16)
 
 # Set major ticks for x-axis
-major_xticks = np.arange(-2,8)
+major_xticks = np.arange(-2,16)
 ax.set_xticks(major_xticks)
 
 
@@ -270,15 +270,17 @@ Latex(r"\begin{equation} \begin{cases} x =2.63157895 \\  y =6.26315789\end{cases
 
 
 # 1.2.1 DONE
-A = np.array([[21, 15, 9],[7, 42, 6]])
-B = np.array([4, 33])
-AB = np.matmul(B, A)
+# A = np.array([[21, 15, 9],[7, 42, 6]])
+# B = np.array([4, 33])
+A = np.array([[21, 7], [15, 42], [9, 6]])
+B = np.array([[4],[33]])
+AB = np.matmul(A, B)
 #(𝐴𝐵)T
 AB_transpose = AB.transpose()
 B_transpose = B.transpose()
 A_transpose = A.transpose()
 #𝐵T𝐴T
-B_tran_A_tran =  np.matmul(A_transpose,B_transpose)
+B_tran_A_tran =  np.matmul(B_transpose, A_transpose)
 is_equal = ((AB_transpose == B_tran_A_tran).all())
 if is_equal:
     print("(𝐴𝐵)T=𝐵T𝐴T")
@@ -640,7 +642,7 @@ get_ipython().run_line_magic('run', '-i -e test.py LinearRegressionTestCase.test
 def calc_Condition_Number(A):
     numpy_A = None
     if isinstance(A, list):
-        numpy_A = np.array(list)
+        numpy_A = np.array(A)
     else:
         numpy_A = A
         
@@ -648,10 +650,6 @@ def calc_Condition_Number(A):
     frobns_A = calc_Frobenius_Norm(numpy_A)
     frobns_inv_A = calc_Frobenius_Norm(inv_A)
     return frobns_A * frobns_inv_A
-
-# 我将test，拿出来执行结果
-# test_sample=np.array([[1,2],[2,4.0001]])
-# calc_Condition_Number(test_sample)
 
 
 # In[14]:
